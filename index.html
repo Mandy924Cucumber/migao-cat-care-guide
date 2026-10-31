@@ -1,0 +1,1655 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#fff9e8">
+  <meta name="description" content="暖猫手册：猫咪简介、饮食建议、叫声解读、养猫清单与猫咪科普。">
+  <title>暖猫手册 | 养猫指南</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --paper: #fff9e8;
+      --paper-soft: #fffdf6;
+      --cream: #f9e8bd;
+      --cream-strong: #f2d48f;
+      --caramel: #a85427;
+      --caramel-deep: #743617;
+      --cocoa: #36241c;
+      --muted: #725f54;
+      --line: rgba(116, 54, 23, 0.18);
+      --wash: rgba(246, 218, 159, 0.32);
+      --shadow: 0 28px 70px rgba(120, 62, 31, 0.13);
+      --radius: 26px;
+      --nav-height: 72px;
+    }
+
+    [data-theme="dark"] {
+      color-scheme: dark;
+      --paper: #211710;
+      --paper-soft: #2c1e16;
+      --cream: #4a3321;
+      --cream-strong: #694326;
+      --caramel: #dd8b52;
+      --caramel-deep: #f0b47a;
+      --cocoa: #f8ead5;
+      --muted: #cdbba8;
+      --line: rgba(248, 234, 213, 0.16);
+      --wash: rgba(118, 68, 35, 0.22);
+      --shadow: 0 28px 70px rgba(0, 0, 0, 0.28);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: calc(var(--nav-height) + 20px);
+      touch-action: manipulation;
+    }
+
+    body {
+      margin: 0;
+      overflow-x: clip;
+      color: var(--cocoa);
+      background:
+        radial-gradient(circle at 9% 18%, var(--wash), transparent 28rem),
+        var(--paper);
+      font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", sans-serif;
+      line-height: 1.65;
+      -webkit-touch-callout: none;
+      transition: background-color 240ms ease, color 240ms ease;
+    }
+
+    body.menu-open {
+      overflow: hidden;
+    }
+
+    button,
+    a {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    figure {
+      margin: 0;
+    }
+
+    :focus-visible {
+      outline: 3px solid var(--caramel);
+      outline-offset: 4px;
+    }
+
+    .skip-link {
+      position: fixed;
+      left: 16px;
+      top: 12px;
+      z-index: 30;
+      padding: 10px 16px;
+      border-radius: 999px;
+      color: var(--paper-soft);
+      background: var(--caramel-deep);
+      transform: translateY(-150%);
+      transition: transform 180ms ease;
+    }
+
+    .skip-link:focus {
+      transform: translateY(0);
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      min-height: var(--nav-height);
+      border-bottom: 1px solid transparent;
+      background: color-mix(in srgb, var(--paper) 86%, transparent);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      transition: border-color 180ms ease, box-shadow 180ms ease;
+    }
+
+    .site-header.scrolled {
+      border-color: var(--line);
+      box-shadow: 0 8px 28px rgba(120, 62, 31, 0.08);
+    }
+
+    .nav-shell {
+      width: min(1180px, calc(100% - 40px));
+      min-height: var(--nav-height);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+      gap: 28px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 11px;
+      font-size: 18px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      white-space: nowrap;
+    }
+
+    .brand-mark {
+      width: 34px;
+      height: 34px;
+      flex: 0 0 34px;
+    }
+
+    .brand-mark svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+      color: var(--cocoa);
+    }
+
+    .nav-links {
+      justify-self: center;
+      display: flex;
+      align-items: center;
+      gap: clamp(18px, 2.2vw, 34px);
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 650;
+      white-space: nowrap;
+    }
+
+    .nav-links a {
+      position: relative;
+      padding: 8px 0;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 3px;
+      height: 2px;
+      border-radius: 999px;
+      background: var(--caramel);
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform 220ms ease;
+    }
+
+    .nav-links a:hover::after,
+    .nav-links a[aria-current="true"]::after {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .round-control,
+    .menu-toggle {
+      min-height: 42px;
+      padding: 0 15px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: var(--cocoa);
+      background: var(--paper-soft);
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 750;
+      transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+    }
+
+    .round-control:hover,
+    .menu-toggle:hover {
+      border-color: var(--caramel);
+      background: var(--cream);
+    }
+
+    .round-control:active,
+    .menu-toggle:active,
+    .button:active,
+    .sound-button:active,
+    .age-tab:active {
+      transform: translateY(1px) scale(0.98);
+    }
+
+    .menu-toggle {
+      display: none;
+    }
+
+    .hero {
+      width: min(1240px, calc(100% - 40px));
+      min-height: calc(100dvh - var(--nav-height));
+      margin: 0 auto;
+      padding: 38px 0 54px;
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(480px, 1.1fr);
+      align-items: center;
+      gap: clamp(34px, 5vw, 80px);
+    }
+
+    .hero-copy {
+      padding-left: clamp(0px, 3vw, 42px);
+    }
+
+    .eyebrow {
+      margin: 0 0 18px;
+      color: var(--caramel-deep);
+      font-size: 12px;
+      font-weight: 850;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
+    }
+
+    h1 {
+      max-width: 9ch;
+      margin-bottom: 24px;
+      font-size: clamp(48px, 6.1vw, 82px);
+      line-height: 1.04;
+      letter-spacing: -0.065em;
+    }
+
+    h1 em {
+      color: var(--caramel);
+      font-style: normal;
+    }
+
+    .hero-lead {
+      max-width: 28ch;
+      margin-bottom: 30px;
+      color: var(--muted);
+      font-size: clamp(17px, 1.5vw, 20px);
+      line-height: 1.7;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .button {
+      min-height: 50px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 22px;
+      border: 1px solid var(--caramel-deep);
+      border-radius: 999px;
+      white-space: nowrap;
+      font-weight: 800;
+      transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
+    }
+
+    .button-primary {
+      color: #fffaf2;
+      background: var(--caramel-deep);
+      box-shadow: 0 12px 28px rgba(116, 54, 23, 0.22);
+    }
+
+    .button-primary:hover {
+      background: var(--caramel);
+      box-shadow: 0 16px 34px rgba(116, 54, 23, 0.28);
+      transform: translateY(-2px);
+    }
+
+    .button-secondary {
+      color: var(--caramel-deep);
+      background: transparent;
+    }
+
+    .button-secondary:hover {
+      background: var(--cream);
+    }
+
+    .hero-visual {
+      position: relative;
+      min-height: min(670px, calc(100dvh - 126px));
+      overflow: hidden;
+      border-radius: var(--radius);
+      background: var(--cream);
+      box-shadow: var(--shadow);
+      isolation: isolate;
+    }
+
+    .hero-visual img {
+      height: 100%;
+      min-height: inherit;
+      object-fit: cover;
+      object-position: 56% center;
+    }
+
+    .hero-note {
+      position: absolute;
+      right: 22px;
+      bottom: 22px;
+      width: min(250px, calc(100% - 44px));
+      padding: 18px 20px;
+      border: 1px solid rgba(255, 255, 255, 0.52);
+      border-radius: 20px;
+      color: #4b2b1c;
+      background: rgba(255, 251, 240, 0.84);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.72);
+      font-size: 14px;
+      line-height: 1.55;
+    }
+
+    .hero-note strong {
+      display: block;
+      margin-bottom: 3px;
+      color: #713817;
+      font-size: 18px;
+    }
+
+    .section {
+      padding: clamp(78px, 10vw, 136px) 0;
+    }
+
+    .section-shell {
+      width: min(1120px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .section-heading {
+      max-width: 720px;
+      margin-bottom: 52px;
+    }
+
+    .section-heading h2 {
+      margin-bottom: 16px;
+      font-size: clamp(36px, 4.8vw, 62px);
+      line-height: 1.08;
+      letter-spacing: -0.055em;
+    }
+
+    .section-heading p {
+      max-width: 54ch;
+      margin-bottom: 0;
+      color: var(--muted);
+      font-size: 17px;
+    }
+
+    .intro-layout {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: clamp(42px, 7vw, 90px);
+      align-items: start;
+    }
+
+    .intro-sticky {
+      position: sticky;
+      top: calc(var(--nav-height) + 36px);
+    }
+
+    .intro-sticky h2 {
+      max-width: 9ch;
+      margin-bottom: 24px;
+      font-size: clamp(42px, 5vw, 68px);
+      line-height: 1.07;
+      letter-spacing: -0.055em;
+    }
+
+    .intro-sticky p {
+      max-width: 39ch;
+      color: var(--muted);
+      font-size: 17px;
+    }
+
+    .trait-list {
+      border-top: 1px solid var(--line);
+    }
+
+    .trait {
+      display: grid;
+      grid-template-columns: 82px 1fr;
+      gap: 22px;
+      padding: 28px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .trait strong {
+      color: var(--caramel);
+      font-size: 28px;
+      line-height: 1;
+      letter-spacing: -0.04em;
+    }
+
+    .trait h3 {
+      margin-bottom: 7px;
+      font-size: 20px;
+      letter-spacing: -0.02em;
+    }
+
+    .trait p {
+      margin-bottom: 0;
+      color: var(--muted);
+    }
+
+    .recipe-section {
+      position: relative;
+      overflow: hidden;
+      background: color-mix(in srgb, var(--cream) 46%, var(--paper));
+    }
+
+    .recipe-layout {
+      display: grid;
+      grid-template-columns: minmax(360px, 0.9fr) minmax(0, 1.1fr);
+      gap: clamp(36px, 6vw, 76px);
+      align-items: center;
+    }
+
+    .recipe-photo {
+      overflow: hidden;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .recipe-photo img {
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      object-position: 48% center;
+    }
+
+    .age-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 26px 0 28px;
+    }
+
+    .age-tab {
+      min-height: 42px;
+      padding: 0 17px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: var(--muted);
+      background: transparent;
+      cursor: pointer;
+      font-weight: 750;
+      transition: transform 160ms ease, background 180ms ease, color 180ms ease, border-color 180ms ease;
+    }
+
+    .age-tab[aria-selected="true"] {
+      border-color: var(--caramel-deep);
+      color: #fffaf2;
+      background: var(--caramel-deep);
+    }
+
+    .meal-panel {
+      min-height: 276px;
+      padding: 28px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--paper-soft);
+    }
+
+    .meal-panel h3 {
+      margin-bottom: 6px;
+      font-size: 24px;
+    }
+
+    .meal-panel > p {
+      color: var(--muted);
+    }
+
+    .meal-points {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 22px;
+    }
+
+    .meal-point {
+      padding: 18px;
+      border-radius: 18px;
+      background: var(--wash);
+    }
+
+    .meal-point strong {
+      display: block;
+      margin-bottom: 4px;
+      color: var(--caramel-deep);
+    }
+
+    .meal-point span {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .food-warning {
+      margin-top: 20px;
+      padding-left: 18px;
+      border-left: 3px solid var(--caramel);
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .voice-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.9fr);
+      gap: clamp(38px, 7vw, 82px);
+      align-items: center;
+    }
+
+    .voice-stage {
+      padding: clamp(28px, 5vw, 54px);
+      border-radius: var(--radius);
+      background: var(--caramel-deep);
+      color: #fff9ee;
+      box-shadow: var(--shadow);
+    }
+
+    .voice-stage h2 {
+      margin-bottom: 14px;
+      font-size: clamp(36px, 4.5vw, 58px);
+      line-height: 1.08;
+      letter-spacing: -0.05em;
+    }
+
+    .voice-stage > p {
+      max-width: 42ch;
+      color: rgba(255, 249, 238, 0.76);
+    }
+
+    .sound-buttons {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      margin: 30px 0;
+    }
+
+    .sound-button {
+      min-height: 64px;
+      padding: 0 18px;
+      border: 1px solid rgba(255, 249, 238, 0.24);
+      border-radius: 18px;
+      color: #fff9ee;
+      background: transparent;
+      cursor: pointer;
+      font-weight: 800;
+      text-align: left;
+      transition: transform 160ms ease, background 180ms ease, border-color 180ms ease;
+    }
+
+    .sound-button:hover,
+    .sound-button[aria-pressed="true"] {
+      border-color: #fff9ee;
+      background: rgba(255, 249, 238, 0.14);
+    }
+
+    .sound-result {
+      min-height: 142px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255, 249, 238, 0.22);
+    }
+
+    .sound-result h3 {
+      margin-bottom: 7px;
+      font-size: 24px;
+    }
+
+    .sound-result p {
+      margin-bottom: 6px;
+      color: rgba(255, 249, 238, 0.8);
+    }
+
+    .voice-photo {
+      overflow: hidden;
+      border-radius: var(--radius);
+      background: var(--cream);
+    }
+
+    .voice-photo img {
+      aspect-ratio: 3 / 4;
+      object-fit: cover;
+    }
+
+    .guide-section {
+      background: linear-gradient(150deg, var(--paper-soft), color-mix(in srgb, var(--cream) 34%, var(--paper)));
+    }
+
+    .guide-grid {
+      display: grid;
+      grid-template-columns: 0.75fr 1.25fr;
+      gap: clamp(38px, 7vw, 86px);
+      align-items: start;
+    }
+
+    .guide-copy h2 {
+      margin-bottom: 18px;
+      font-size: clamp(38px, 5vw, 64px);
+      line-height: 1.08;
+      letter-spacing: -0.055em;
+    }
+
+    .guide-copy p {
+      color: var(--muted);
+    }
+
+    .progress-wrap {
+      margin-top: 30px;
+    }
+
+    .progress-copy {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 10px;
+      font-size: 14px;
+      font-weight: 750;
+    }
+
+    .progress-line {
+      height: 5px;
+      overflow: hidden;
+      border-radius: 999px;
+      background: var(--line);
+    }
+
+    .progress-line span {
+      display: block;
+      width: 0;
+      height: 100%;
+      border-radius: inherit;
+      background: var(--caramel);
+      transition: width 280ms ease;
+    }
+
+    .checklist {
+      display: grid;
+      gap: 12px;
+    }
+
+    .check-item {
+      position: relative;
+      display: grid;
+      grid-template-columns: 26px 1fr;
+      gap: 16px;
+      align-items: start;
+      padding: 21px 22px;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      background: var(--paper-soft);
+      cursor: pointer;
+      transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+    }
+
+    .check-item:hover {
+      transform: translateY(-2px);
+      border-color: var(--caramel);
+    }
+
+    .check-item input {
+      position: absolute;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .fake-check {
+      width: 26px;
+      height: 26px;
+      display: grid;
+      place-items: center;
+      border: 2px solid var(--caramel);
+      border-radius: 50%;
+      color: transparent;
+      font-size: 13px;
+      font-weight: 900;
+      transition: background 160ms ease, color 160ms ease;
+    }
+
+    .check-item input:checked + .fake-check {
+      color: #fffaf2;
+      background: var(--caramel);
+    }
+
+    .check-item input:focus-visible + .fake-check {
+      outline: 3px solid var(--caramel);
+      outline-offset: 4px;
+    }
+
+    .check-text strong {
+      display: block;
+      margin-bottom: 2px;
+      font-size: 17px;
+    }
+
+    .check-text span {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .science-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .fact {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--paper-soft);
+      overflow: hidden;
+    }
+
+    .fact:first-child {
+      grid-column: 1 / -1;
+      background: color-mix(in srgb, var(--cream) 46%, var(--paper-soft));
+    }
+
+    .fact-button {
+      width: 100%;
+      min-height: 88px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 20px;
+      align-items: center;
+      padding: 22px 24px;
+      border: 0;
+      color: var(--cocoa);
+      background: transparent;
+      cursor: pointer;
+      text-align: left;
+    }
+
+    .fact-button strong {
+      font-size: 18px;
+      line-height: 1.35;
+    }
+
+    .fact-symbol {
+      width: 30px;
+      height: 30px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      color: var(--caramel-deep);
+      font-size: 20px;
+      transition: transform 180ms ease, background 180ms ease;
+    }
+
+    .fact-button[aria-expanded="true"] .fact-symbol {
+      background: var(--cream);
+      transform: rotate(45deg);
+    }
+
+    .fact-answer {
+      display: grid;
+      grid-template-rows: 0fr;
+      transition: grid-template-rows 240ms ease;
+    }
+
+    .fact-answer > div {
+      overflow: hidden;
+    }
+
+    .fact-answer p {
+      padding: 0 24px 24px;
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .fact-button[aria-expanded="true"] + .fact-answer {
+      grid-template-rows: 1fr;
+    }
+
+    .care-note {
+      margin-top: 44px;
+      padding: 28px 30px;
+      border-radius: var(--radius);
+      color: #fffaf2;
+      background: var(--caramel-deep);
+    }
+
+    .care-note strong {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 20px;
+    }
+
+    .care-note p {
+      max-width: 70ch;
+      margin-bottom: 0;
+      color: rgba(255, 250, 242, 0.78);
+    }
+
+    footer {
+      padding: 48px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .footer-shell {
+      width: min(1120px, calc(100% - 40px));
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 24px;
+      align-items: end;
+    }
+
+    .footer-shell h2 {
+      margin-bottom: 8px;
+      font-size: clamp(28px, 4vw, 44px);
+      letter-spacing: -0.045em;
+    }
+
+    .footer-shell p {
+      margin-bottom: 0;
+      color: var(--muted);
+    }
+
+    .back-top {
+      min-height: 46px;
+      padding: 0 18px;
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: var(--caramel-deep);
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 640ms cubic-bezier(0.16, 1, 0.3, 1), transform 640ms cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 980px) {
+      .nav-shell {
+        width: min(100% - 28px, 1180px);
+      }
+
+      .nav-links {
+        position: fixed;
+        inset: var(--nav-height) 14px auto;
+        width: auto;
+        justify-self: stretch;
+        display: grid;
+        gap: 4px;
+        padding: 14px;
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        background: var(--paper-soft);
+        box-shadow: var(--shadow);
+        transform: translateY(-18px);
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 180ms ease, transform 180ms ease, visibility 180ms ease;
+      }
+
+      .nav-links a {
+        padding: 12px 14px;
+        border-radius: 14px;
+      }
+
+      .nav-links a:hover {
+        background: var(--cream);
+      }
+
+      .nav-links a::after {
+        display: none;
+      }
+
+      .nav-links.open {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .menu-toggle {
+        display: inline-flex;
+        align-items: center;
+      }
+
+      .hero {
+        grid-template-columns: 0.85fr 1.15fr;
+        gap: 30px;
+      }
+
+      h1 {
+        font-size: clamp(44px, 7vw, 64px);
+      }
+
+      .hero-visual {
+        min-height: 570px;
+      }
+    }
+
+    @media (max-width: 767px) {
+      :root {
+        --nav-height: 62px;
+        --radius: 20px;
+      }
+
+      html {
+        scroll-padding-top: calc(var(--nav-height) + 12px);
+      }
+
+      body {
+        line-height: 1.58;
+      }
+
+      .site-header {
+        padding-top: var(--safe-area-inset-top, env(safe-area-inset-top, 0px));
+      }
+
+      .nav-shell {
+        width: calc(100% - 32px);
+        grid-template-columns: 1fr auto;
+        gap: 10px;
+      }
+
+      .brand {
+        gap: 8px;
+        font-size: 17px;
+      }
+
+      .brand-mark {
+        width: 32px;
+        height: 32px;
+        flex-basis: 32px;
+      }
+
+      .nav-actions {
+        justify-self: end;
+        gap: 6px;
+      }
+
+      .round-control,
+      .menu-toggle {
+        min-height: 42px;
+        padding-inline: 12px;
+      }
+
+      .nav-links {
+        inset: calc(var(--nav-height) + var(--safe-area-inset-top, env(safe-area-inset-top, 0px))) 12px auto;
+        max-height: calc(100dvh - var(--nav-height) - var(--safe-area-inset-top, env(safe-area-inset-top, 0px)) - 24px);
+        overflow-y: auto;
+        overscroll-behavior: contain;
+        padding: 10px;
+        border-radius: 18px;
+      }
+
+      .nav-links a {
+        min-height: 46px;
+        display: flex;
+        align-items: center;
+        padding: 10px 12px;
+      }
+
+      .hero,
+      .intro-layout,
+      .recipe-layout,
+      .voice-layout,
+      .guide-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        width: calc(100% - 32px);
+        min-height: auto;
+        padding: 30px 0 20px;
+        align-items: start;
+        gap: 24px;
+      }
+
+      .hero-copy {
+        padding-left: 0;
+      }
+
+      .eyebrow {
+        margin-bottom: 12px;
+        font-size: 10px;
+        letter-spacing: 0.13em;
+      }
+
+      h1 {
+        max-width: none;
+        margin-bottom: 16px;
+        font-size: clamp(40px, 12.5vw, 54px);
+        line-height: 1.07;
+        letter-spacing: -0.055em;
+      }
+
+      .hero-lead {
+        max-width: 30ch;
+        margin-bottom: 22px;
+        font-size: 16px;
+        line-height: 1.62;
+      }
+
+      .button {
+        min-height: 48px;
+      }
+
+      .hero-visual {
+        min-height: 0;
+        aspect-ratio: auto;
+      }
+
+      .hero-visual img {
+        height: auto;
+        min-height: 0;
+        aspect-ratio: 4 / 3;
+        object-position: 60% center;
+      }
+
+      .hero-note {
+        position: static;
+        width: auto;
+        padding: 14px 16px 15px;
+        border: 0;
+        border-top: 1px solid var(--line);
+        border-radius: 0;
+        color: var(--cocoa);
+        background: var(--paper-soft);
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+        box-shadow: none;
+        font-size: 13px;
+      }
+
+      .hero-note strong {
+        color: var(--caramel-deep);
+        font-size: 16px;
+      }
+
+      .section {
+        padding: 60px 0;
+      }
+
+      .section-shell {
+        width: calc(100% - 32px);
+      }
+
+      .section-heading {
+        margin-bottom: 28px;
+      }
+
+      .section-heading h2 {
+        margin-bottom: 12px;
+        font-size: clamp(32px, 10vw, 44px);
+        line-height: 1.1;
+      }
+
+      .section-heading p {
+        font-size: 16px;
+      }
+
+      .intro-layout {
+        gap: 22px;
+      }
+
+      .intro-sticky {
+        position: static;
+      }
+
+      .intro-sticky h2 {
+        max-width: 12ch;
+        margin-bottom: 14px;
+        font-size: clamp(34px, 10.5vw, 46px);
+      }
+
+      .intro-sticky p {
+        font-size: 16px;
+      }
+
+      .trait {
+        grid-template-columns: 42px 1fr;
+        gap: 12px;
+        padding: 21px 0;
+      }
+
+      .trait strong {
+        font-size: 18px;
+      }
+
+      .trait h3 {
+        margin-bottom: 5px;
+        font-size: 18px;
+      }
+
+      .recipe-layout,
+      .voice-layout,
+      .guide-grid {
+        gap: 26px;
+      }
+
+      .recipe-photo img {
+        aspect-ratio: 4 / 3;
+      }
+
+      .meal-points,
+      .science-list {
+        grid-template-columns: 1fr;
+      }
+
+      .age-tabs {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        margin: 20px 0;
+      }
+
+      .age-tab {
+        min-height: 44px;
+        padding-inline: 6px;
+        font-size: 14px;
+      }
+
+      .meal-panel {
+        min-height: 0;
+        padding: 20px;
+      }
+
+      .meal-panel h3 {
+        font-size: 21px;
+      }
+
+      .meal-point {
+        padding: 16px;
+      }
+
+      .voice-stage {
+        padding: 24px 20px;
+      }
+
+      .voice-stage h2,
+      .guide-copy h2 {
+        margin-bottom: 12px;
+        font-size: clamp(32px, 10vw, 44px);
+      }
+
+      .sound-buttons {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px;
+        margin: 24px 0;
+      }
+
+      .sound-button {
+        min-height: 58px;
+        padding-inline: 12px;
+        font-size: 14px;
+      }
+
+      .sound-result {
+        min-height: 0;
+        padding-top: 20px;
+      }
+
+      .voice-photo {
+        order: -1;
+      }
+
+      .voice-photo img {
+        aspect-ratio: 4 / 3;
+        object-position: center 36%;
+      }
+
+      .fact:first-child {
+        grid-column: auto;
+      }
+
+      .progress-wrap {
+        margin-top: 22px;
+      }
+
+      .check-item {
+        grid-template-columns: 24px 1fr;
+        gap: 12px;
+        padding: 17px 16px;
+      }
+
+      .fake-check {
+        width: 24px;
+        height: 24px;
+      }
+
+      .science-list {
+        gap: 10px;
+      }
+
+      .fact-button {
+        min-height: 72px;
+        gap: 14px;
+        padding: 18px;
+      }
+
+      .fact-button strong {
+        font-size: 17px;
+      }
+
+      .fact-answer p {
+        padding: 0 18px 18px;
+      }
+
+      .care-note {
+        margin-top: 30px;
+        padding: 22px 20px;
+      }
+
+      footer {
+        padding: 38px 0 calc(38px + var(--safe-area-inset-bottom, env(safe-area-inset-bottom, 0px)));
+      }
+
+      .footer-shell {
+        width: calc(100% - 32px);
+        grid-template-columns: 1fr;
+        align-items: start;
+      }
+
+      .footer-shell h2 {
+        font-size: clamp(28px, 8.5vw, 38px);
+        line-height: 1.15;
+      }
+    }
+
+    @media (max-width: 430px) {
+      .brand-mark {
+        display: block;
+        width: 30px;
+        height: 30px;
+        flex-basis: 30px;
+      }
+
+      .round-control {
+        min-width: 54px;
+        padding-inline: 10px;
+      }
+
+      .hero-actions {
+        display: grid;
+      }
+
+      .button {
+        width: 100%;
+      }
+
+      .hero-note {
+        right: auto;
+        bottom: auto;
+      }
+
+      .back-top {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+
+    @media (max-width: 360px) {
+      .brand {
+        font-size: 16px;
+      }
+
+      .round-control,
+      .menu-toggle {
+        padding-inline: 10px;
+        font-size: 12px;
+      }
+    }
+
+    @media (hover: none) {
+      .button-primary:hover,
+      .check-item:hover {
+        transform: none;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
+    }
+
+    @media (prefers-reduced-transparency: reduce) {
+      .site-header,
+      .hero-note {
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+      }
+
+      .site-header {
+        background: var(--paper);
+      }
+
+      .hero-note {
+        background: #fff9e8;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到主要内容</a>
+
+  <header class="site-header" data-header>
+    <nav class="nav-shell" aria-label="主要导航">
+      <a class="brand" href="#top" aria-label="暖猫手册首页">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 100 100" focusable="false">
+            <g fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
+              <ellipse cx="21" cy="42" rx="11" ry="16" transform="rotate(-28 21 42)"></ellipse>
+              <ellipse cx="40" cy="27" rx="10" ry="17" transform="rotate(-8 40 27)"></ellipse>
+              <ellipse cx="60" cy="27" rx="10" ry="17" transform="rotate(8 60 27)"></ellipse>
+              <ellipse cx="79" cy="42" rx="11" ry="16" transform="rotate(28 79 42)"></ellipse>
+              <path d="M36 43 C32 52 25 61 23 70 C20 81 27 89 37 89 C43 89 48 86 50 82 C47 80 46 77 48 75 C50 72 54 74 53 78 C53 80 51 82 50 82 C54 87 62 90 68 89 C79 87 82 78 77 67 C73 57 67 50 64 43 C56 46 44 46 36 43 Z"></path>
+            </g>
+          </svg>
+        </span>
+        <span>暖猫手册</span>
+      </a>
+
+      <div class="nav-links" data-nav-links>
+        <a href="#intro">猫咪简介</a>
+        <a href="#recipe">猫咪食谱</a>
+        <a href="#voice">叫声解读</a>
+        <a href="#guide">养猫指南</a>
+        <a href="#science">猫咪科普</a>
+      </div>
+
+      <div class="nav-actions">
+        <button class="round-control" type="button" data-theme-toggle aria-label="切换页面明暗模式">夜间</button>
+        <button class="menu-toggle" type="button" data-menu-toggle aria-expanded="false" aria-controls="mobile-navigation">菜单</button>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="hero-copy reveal">
+        <p class="eyebrow">A WARM GUIDE FOR CAT PEOPLE</p>
+        <h1 id="hero-title">把猫咪，<em>养进心里。</em></h1>
+        <p class="hero-lead">读懂天性、饮食与叫声，把照顾变成默契。</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#intro">开始了解</a>
+          <a class="button button-secondary" href="#guide">查看清单</a>
+        </div>
+      </div>
+
+      <div class="hero-visual reveal">
+        <img src="./assets/hero-cat.jpg" alt="焦糖色与白色相间的猫咪安静地卧在奶油色扶手椅上" width="1536" height="1024" fetchpriority="high">
+        <div class="hero-note">
+          <strong>先观察，再靠近</strong>
+          猫咪愿意慢慢眨眼、尾巴放松时，通常更乐意与你互动。
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="intro" aria-labelledby="intro-title">
+      <div class="section-shell intro-layout">
+        <div class="intro-sticky reveal">
+          <h2 id="intro-title">猫咪，是有边界感的室友。</h2>
+          <p>它们敏锐、独立，也会建立深厚依恋。真正的亲近来自稳定的日常和被尊重的选择。</p>
+        </div>
+
+        <div class="trait-list reveal">
+          <article class="trait">
+            <strong>01</strong>
+            <div>
+              <h3>领地感</h3>
+              <p>熟悉的气味与路线让猫咪安心。搬家或添置新物品时，给它一点适应时间。</p>
+            </div>
+          </article>
+          <article class="trait">
+            <strong>02</strong>
+            <div>
+              <h3>狩猎本能</h3>
+              <p>短时、高频的逗猫游戏比一直把玩具放在地上更有吸引力。</p>
+            </div>
+          </article>
+          <article class="trait">
+            <strong>03</strong>
+            <div>
+              <h3>气味沟通</h3>
+              <p>用脸颊蹭你，是在留下熟悉气味，也可能是在表达友好和信任。</p>
+            </div>
+          </article>
+          <article class="trait">
+            <strong>04</strong>
+            <div>
+              <h3>规律作息</h3>
+              <p>固定的喂食、游戏和休息节奏，有助于减少紧张与过度叫唤。</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section recipe-section" id="recipe" aria-labelledby="recipe-title">
+      <div class="section-shell recipe-layout">
+        <figure class="recipe-photo reveal">
+          <img src="./assets/cat-meal.jpg" alt="橘白猫咪在温暖明亮的厨房里进食" width="1536" height="1024" loading="lazy">
+        </figure>
+
+        <div class="reveal">
+          <div class="section-heading">
+            <h2 id="recipe-title">一餐吃对，比吃得多更重要。</h2>
+            <p>优先选择标明全价或完整均衡营养的猫粮，并根据年龄、体况与兽医建议调整。</p>
+          </div>
+
+          <div class="age-tabs" role="tablist" aria-label="选择猫咪年龄阶段">
+            <button class="age-tab" type="button" role="tab" aria-selected="true" data-age="kitten">幼猫</button>
+            <button class="age-tab" type="button" role="tab" aria-selected="false" data-age="adult">成猫</button>
+            <button class="age-tab" type="button" role="tab" aria-selected="false" data-age="senior">熟龄猫</button>
+          </div>
+
+          <div class="meal-panel" data-meal-panel aria-live="polite">
+            <h3 data-meal-title>幼猫成长餐</h3>
+            <p data-meal-desc>成长速度快，需要能量密度更高、适合幼猫阶段的完整营养主食。</p>
+            <div class="meal-points">
+              <div class="meal-point">
+                <strong data-meal-frequency>少量多餐</strong>
+                <span data-meal-frequency-note>按包装建议分成多次喂食</span>
+              </div>
+              <div class="meal-point">
+                <strong data-meal-focus>关注成长</strong>
+                <span data-meal-focus-note>定期记录体重与精神状态</span>
+              </div>
+            </div>
+          </div>
+
+          <p class="food-warning"><strong>不要喂：</strong>洋葱、大蒜、巧克力、酒精、木糖醇、葡萄与葡萄干、生面团、熟骨头。突然拒食或持续呕吐时请尽快咨询兽医。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="voice" aria-labelledby="voice-title">
+      <div class="section-shell voice-layout">
+        <div class="voice-stage reveal">
+          <h2 id="voice-title">听懂它的每一声。</h2>
+          <p>叫声要结合耳朵、尾巴、姿势和当时情境判断。点击一种声音看看常见含义。</p>
+
+          <div class="sound-buttons" aria-label="猫咪叫声选择">
+            <button class="sound-button" type="button" aria-pressed="true" data-sound="meow">短促的“喵”</button>
+            <button class="sound-button" type="button" aria-pressed="false" data-sound="purr">持续呼噜</button>
+            <button class="sound-button" type="button" aria-pressed="false" data-sound="trill">轻快颤音</button>
+            <button class="sound-button" type="button" aria-pressed="false" data-sound="hiss">低吼或哈气</button>
+          </div>
+
+          <div class="sound-result" data-sound-result aria-live="polite">
+            <h3 data-sound-title>可能是在打招呼</h3>
+            <p data-sound-copy>短促、音量适中的叫声，常出现在迎接你或寻求关注时。</p>
+            <p><strong>你可以：</strong><span data-sound-action>先看它走向哪里，再决定是陪玩、添水还是留出空间。</span></p>
+          </div>
+        </div>
+
+        <figure class="voice-photo reveal">
+          <img src="./assets/cat-meow.jpg" alt="奶油色虎斑猫微微张嘴发出叫声的近距离写真" width="1024" height="1536" loading="lazy">
+        </figure>
+      </div>
+    </section>
+
+    <section class="section guide-section" id="guide" aria-labelledby="guide-title">
+      <div class="section-shell guide-grid">
+        <div class="guide-copy reveal">
+          <h2 id="guide-title">新手养猫，先把这六件事做好。</h2>
+          <p>点击完成一项。勾选进度会保存在当前浏览器中，方便下次回来继续。</p>
+          <div class="progress-wrap" aria-live="polite">
+            <div class="progress-copy">
+              <span>准备进度</span>
+              <span data-progress-text>0 / 6</span>
+            </div>
+            <div class="progress-line" role="progressbar" aria-valuemin="0" aria-valuemax="6" aria-valuenow="0" aria-label="养猫准备进度">
+              <span data-progress-bar></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="checklist reveal" data-checklist>
+          <label class="check-item">
+            <input type="checkbox" data-check="safe-home">
+            <span class="fake-check" aria-hidden="true">✓</span>
+            <span class="check-text"><strong>封好门窗与阳台</strong><span>安装牢固纱网，收好细线、药品、清洁剂与有毒植物。</span></span>
+          </label>
+          <label class="check-item">
+            <input type="checkbox" data-check="litter">
+            <span class="fake-check" aria-hidden="true">✓</span>
+            <span class="check-text"><strong>准备安静猫砂区</strong><span>选择容易到达、远离食水的位置，并保持每日清理。</span></span>
+          </label>
+          <label class="check-item">
+            <input type="checkbox" data-check="food-water">
+            <span class="fake-check" aria-hidden="true">✓</span>
+            <span class="check-text"><strong>分开放置食物与水</strong><span>多处提供干净饮水，观察每天的食欲与饮水变化。</span></span>
+          </label>
+          <label class="check-item">
+            <input type="checkbox" data-check="hide-scratch">
+            <span class="fake-check" aria-hidden="true">✓</span>
+            <span class="check-text"><strong>给它躲藏与抓挠空间</strong><span>纸箱、猫窝、竖直抓柱和高处休息点都很重要。</span></span>
+          </label>
+          <label class="check-item">
+            <input type="checkbox" data-check="vet">
+            <span class="fake-check" aria-hidden="true">✓</span>
+            <span class="check-text"><strong>预约基础健康检查</strong><span>和兽医讨论疫苗、驱虫、绝育、芯片与年度体检计划。</span></span>
+          </label>
+          <label class="check-item">
+            <input type="checkbox" data-check="carrier">
+            <span class="fake-check" aria-hidden="true">✓</span>
+            <span class="check-text"><strong>让航空箱成为安全屋</strong><span>平时敞开放在家中，铺熟悉垫子，减少外出时的紧张。</span></span>
+          </label>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="science" aria-labelledby="science-title">
+      <div class="section-shell">
+        <div class="section-heading reveal">
+          <h2 id="science-title">关于猫咪，你可能猜错了。</h2>
+          <p>展开一个问题，看看这些熟悉行为背后的科学解释。</p>
+        </div>
+
+        <div class="science-list reveal">
+          <article class="fact">
+            <button class="fact-button" type="button" aria-expanded="true">
+              <strong>猫咪为什么喜欢慢慢眨眼？</strong>
+              <span class="fact-symbol" aria-hidden="true">+</span>
+            </button>
+            <div class="fact-answer">
+              <div><p>放松的慢眨眼常出现在友好互动中。你也可以柔和地看向它，慢慢闭眼，再移开视线，避免一直盯视。</p></div>
+            </div>
+          </article>
+          <article class="fact">
+            <button class="fact-button" type="button" aria-expanded="false">
+              <strong>呼噜声一定代表开心吗？</strong>
+              <span class="fact-symbol" aria-hidden="true">+</span>
+            </button>
+            <div class="fact-answer">
+              <div><p>不一定。猫咪放松时会呼噜，紧张、疼痛或自我安抚时也可能呼噜。要同时观察食欲、姿势和活动变化。</p></div>
+            </div>
+          </article>
+          <article class="fact">
+            <button class="fact-button" type="button" aria-expanded="false">
+              <strong>猫咪能喝牛奶吗？</strong>
+              <span class="fact-symbol" aria-hidden="true">+</span>
+            </button>
+            <div class="fact-answer">
+              <div><p>很多成年猫对乳糖的耐受较差，普通牛奶可能引起消化不适。日常最适合的饮品仍是干净的水。</p></div>
+            </div>
+          </article>
+          <article class="fact">
+            <button class="fact-button" type="button" aria-expanded="false">
+              <strong>猫咪为什么把东西推下桌？</strong>
+              <span class="fact-symbol" aria-hidden="true">+</span>
+            </button>
+            <div class="fact-answer">
+              <div><p>可能是在探索物体、练习捕猎动作，或发现这样能获得你的注意。增加互动游戏通常比责骂更有效。</p></div>
+            </div>
+          </article>
+          <article class="fact">
+            <button class="fact-button" type="button" aria-expanded="false">
+              <strong>一直舔毛就是爱干净吗？</strong>
+              <span class="fact-symbol" aria-hidden="true">+</span>
+            </button>
+            <div class="fact-answer">
+              <div><p>日常理毛很正常，但出现秃斑、皮肤发红或明显频繁舔咬时，可能与皮肤问题、疼痛或压力有关。</p></div>
+            </div>
+          </article>
+        </div>
+
+        <aside class="care-note reveal">
+          <strong>观察变化，比记住标准答案更重要。</strong>
+          <p>如果猫咪突然躲藏、拒食、呼吸异常、排尿困难或精神明显变差，请尽快联系兽医。本页内容用于日常科普，不能替代专业诊断。</p>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-shell">
+      <div>
+        <h2>愿每一只猫，都被温柔读懂。</h2>
+        <p>暖猫手册，给新手猫主人一份清晰、安心的起点。</p>
+      </div>
+      <a class="back-top" href="#top">回到顶部</a>
+    </div>
+  </footer>
+
+  <script src="./assets/main.js"></script>
+</body>
+</html>
